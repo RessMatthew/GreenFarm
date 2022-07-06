@@ -4,7 +4,7 @@ MAINTAINER opgames(opgames.cn@gmail.com)
 
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
-RUN mkdir -p /opt/projects/mall4j
+RUN mkdir -p /opt/projects/greenfarm
 
 WORKDIR /opt/projects/greenfarm
 
