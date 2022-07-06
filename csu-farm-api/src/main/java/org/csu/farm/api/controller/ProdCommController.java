@@ -52,12 +52,13 @@ public class ProdCommController {
         return ResponseEntity.ok(prodCommService.getProdCommDtoPageByProdId(page, prodId, evaluate));
     }
 
-    @PostMapping
+    @PostMapping("/addProdComm")
     @ApiOperation(value = "添加评论")
     public ResponseEntity<Void> saveProdCommPage(ProdCommParam prodCommParam) {
         ProdComm prodComm = new ProdComm();
         prodComm.setProdId(prodCommParam.getProdId());
         prodComm.setOrderItemId(prodCommParam.getOrderItemId());
+        //这句有点危险，尚未登入时测试
         prodComm.setUserId(SecurityUtils.getUser().getUserId());
         prodComm.setScore(prodCommParam.getScore());
         prodComm.setContent(prodCommParam.getContent());
