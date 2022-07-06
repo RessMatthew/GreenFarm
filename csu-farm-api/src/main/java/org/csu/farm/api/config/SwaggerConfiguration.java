@@ -1,7 +1,4 @@
-
-
 package org.csu.farm.api.config;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -37,10 +34,10 @@ public class SwaggerConfiguration {
 	 @Bean
 	 public ApiInfo apiInfo() {
 	     return new ApiInfoBuilder()
-	     .title("mall4j商城接口文档")
-	     .description("mall4j商城接口文档Swagger版")
-	     .termsOfServiceUrl("http://www.mall4j.com/")
-	     .contact(new Contact("广州市蓝海创新科技有限公司","https://www.mall4j.com/", ""))
+	     .title("GreenFarm商城接口文档")
+	     .description("GreenFarm商城接口文档Swagger版")
+	     .termsOfServiceUrl("http://1.12.249.224:8086/")
+	     .contact(new Contact("CSU","https://www.csu.edu.cn/", ""))
 	     .version("1.0")
 	     .build();
 	 }

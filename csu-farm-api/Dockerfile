@@ -6,7 +6,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
 RUN mkdir -p /opt/projects/mall4j
 
-WORKDIR /opt/projects/mall4j
+WORKDIR /opt/projects/greenfarm
 
 EXPOSE 8086
 
