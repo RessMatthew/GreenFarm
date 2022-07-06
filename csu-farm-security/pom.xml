@@ -15,7 +15,7 @@
 	<packaging>pom</packaging>
 
 	<modules>
-		<module>farm-security-api</module>
-		<module>farm-security-common</module>
+		<module>csu-farm-security-api</module>
+		<module>csu-farm-security-common</module>
 	</modules>
 </project>

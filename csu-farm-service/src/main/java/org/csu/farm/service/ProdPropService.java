@@ -9,10 +9,7 @@ import org.csu.farm.bean.model.ProdProp;
 
 import java.util.List;
 
-/**
- *
- * Created by lgh on 2018/07/06.
- */
+
 public interface ProdPropService extends IService<ProdProp> {
 
 	/**

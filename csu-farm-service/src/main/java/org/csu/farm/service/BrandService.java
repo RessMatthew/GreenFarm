@@ -7,10 +7,7 @@ import org.csu.farm.bean.model.Brand;
 
 import java.util.List;
 
-/**
- *
- * Created by lgh on 2018/07/05.
- */
+
 public interface BrandService extends IService<Brand> {
 
 	/**

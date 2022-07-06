@@ -22,9 +22,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Objects;
 
-/**
- * Created by lgh on 2018/07/06.
- */
+
 @Service
 public class ProdPropServiceImpl extends ServiceImpl<ProdPropMapper, ProdProp> implements ProdPropService {
 

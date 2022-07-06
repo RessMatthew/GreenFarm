@@ -10,10 +10,7 @@ import org.springframework.stereotype.Service;
 
 import org.csu.farm.bean.model.ProdPropValue;
 
-/**
- *
- * Created by lgh on 2018/07/06.
- */
+
 @Service
 public class ProdPropValueServiceImpl extends ServiceImpl<ProdPropValueMapper, ProdPropValue> implements ProdPropValueService {
 

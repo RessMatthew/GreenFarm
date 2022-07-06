@@ -10,10 +10,7 @@ import org.springframework.stereotype.Service;
 
 import org.csu.farm.bean.model.CategoryProp;
 
-/**
- *
- * Created by lgh on 2018/07/13.
- */
+
 @Service
 public class CategoryPropServiceImpl extends ServiceImpl<CategoryPropMapper, CategoryProp> implements CategoryPropService {
 

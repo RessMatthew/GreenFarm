@@ -8,11 +8,11 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>farm-common</module>
-        <module>farm-api</module>
-        <module>farm-bean</module>
-        <module>farm-service</module>
-        <module>farm-security</module>
+        <module>csu-farm-common</module>
+        <module>csu-farm-api</module>
+        <module>csu-farm-bean</module>
+        <module>csu-farm-service</module>
+        <module>csu-farm-security</module>
     </modules>
 
     <properties>
