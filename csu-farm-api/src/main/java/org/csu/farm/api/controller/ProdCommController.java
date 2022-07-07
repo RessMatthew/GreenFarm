@@ -19,6 +19,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Date;
 
 @RestController
@@ -54,21 +55,41 @@ public class ProdCommController {
 
     @PostMapping("/addProdComm")
     @ApiOperation(value = "添加评论")
-    public ResponseEntity<Void> saveProdCommPage(ProdCommParam prodCommParam) {
+    public ResponseEntity<Void> saveProdCommPage(@Valid @RequestBody ProdCommParam prodCommParam) {
         ProdComm prodComm = new ProdComm();
+        //prodComm.setProdId(69L);
         prodComm.setProdId(prodCommParam.getProdId());
         prodComm.setOrderItemId(prodCommParam.getOrderItemId());
         //这句有点危险，尚未登入时测试
-        prodComm.setUserId(SecurityUtils.getUser().getUserId());
+        prodComm.setUserId("9d42ae45bc0f4a4899db50f522caa3fe");
+        //prodComm.setUserId(SecurityUtils.getUser().getUserId());
         prodComm.setScore(prodCommParam.getScore());
         prodComm.setContent(prodCommParam.getContent());
-        prodComm.setPics(prodCommParam.getPics());
-        prodComm.setIsAnonymous(prodCommParam.getIsAnonymous());
+        prodComm.setPics(null);
+//        prodComm.setPics(prodCommParam.getPics());
+        prodComm.setIsAnonymous(0);
+//        prodComm.setIsAnonymous(prodCommParam.getIsAnonymous());
         prodComm.setRecTime(new Date());
         prodComm.setStatus(0);
-        prodComm.setEvaluate(prodCommParam.getEvaluate());
+        prodComm.setEvaluate(0);
+
+
         prodCommService.save(prodComm);
         return ResponseEntity.ok().build();
+//        ProdComm prodComm = new ProdComm();
+//        prodComm.setProdId(prodCommParam.getProdId());
+//        prodComm.setOrderItemId(prodCommParam.getOrderItemId());
+//        //这句有点危险，尚未登入时测试
+//        prodComm.setUserId(SecurityUtils.getUser().getUserId());
+//        prodComm.setScore(prodCommParam.getScore());
+//        prodComm.setContent(prodCommParam.getContent());
+//        prodComm.setPics(prodCommParam.getPics());
+//        prodComm.setIsAnonymous(prodCommParam.getIsAnonymous());
+//        prodComm.setRecTime(new Date());
+//        prodComm.setStatus(0);
+//        prodComm.setEvaluate(prodCommParam.getEvaluate());
+//        prodCommService.save(prodComm);
+//        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping

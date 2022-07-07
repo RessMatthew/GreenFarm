@@ -25,6 +25,7 @@ import org.csu.farm.service.*;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -78,6 +79,7 @@ public class MyOrderController {
         List<OrderItem> orderItems = orderItemService.getOrderItemsByOrderNumber(orderNumber);
         List<OrderItemDto> orderItemDtos = mapperFacade.mapAsList(orderItems, OrderItemDto.class);
 
+        orderShopDto.setOrderId(order.getOrderId());
         orderShopDto.setShopId(shopDetail.getShopId());
         orderShopDto.setShopName(shopDetail.getShopName());
         orderShopDto.setActualTotal(order.getActualTotal());
@@ -97,6 +99,11 @@ public class MyOrderController {
         }
         orderShopDto.setTotal(total);
         orderShopDto.setTotalNum(totalNum);
+
+        //修改订单状态
+        List<Order> orderList =new ArrayList();
+        orderList.add(order);
+        orderService.confirmOrder(orderList);
 
         return ResponseEntity.ok(orderShopDto);
     }

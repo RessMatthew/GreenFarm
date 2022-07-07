@@ -19,6 +19,12 @@ import io.swagger.annotations.ApiModelProperty;
 public class OrderShopDto implements Serializable {
 
     /**
+     * 订单ID
+     **/
+    @ApiModelProperty(value = "订单id", required = true)
+    private Long orderId;
+
+    /**
      * 店铺ID
      **/
     @ApiModelProperty(value = "店铺id", required = true)
