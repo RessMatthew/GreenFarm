@@ -183,6 +183,14 @@
         </foreach>
     </update>
 
+
+    <update id="confirmOrderWithoutComm">
+        update tz_order set `status`=4,finally_time = NOW() where order_id in
+        <foreach collection="orders" item="order" open="(" close=")" separator=",">
+            #{order.orderId}
+        </foreach>
+    </update>
+
     <update id="confirmOrder">
         update tz_order set `status`=5,finally_time = NOW() where order_id in
         <foreach collection="orders" item="order" open="(" close=")" separator=",">

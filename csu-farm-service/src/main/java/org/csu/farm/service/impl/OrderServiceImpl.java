@@ -139,7 +139,15 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         });
         skuMapper.returnStock(skuCollect);
     }
+    @Override
+    @Transactional(rollbackFor = Exception.class)
+    public void confirmOrderWithoutComm(List<Order> orders) {
+        orderMapper.confirmOrderWithoutComm(orders);
+        for (Order order : orders) {
+            eventPublisher.publishEvent(new ReceiptOrderEvent(order));
+        }
 
+    }
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void confirmOrder(List<Order> orders) {
@@ -149,6 +157,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderMapper, Order> implements
         }
 
     }
+
+
 
     @Override
     public List<Order> listOrdersDetialByOrder(Order order, Date startTime, Date endTime) {

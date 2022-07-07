@@ -170,7 +170,7 @@ public class MyOrderController {
         List<OrderItem> orderItems = orderItemService.getOrderItemsByOrderNumber(orderNumber);
         order.setOrderItems(orderItems);
         // 确认收货
-        orderService.confirmOrder(Arrays.asList(order));
+        orderService.confirmOrderWithoutComm(Arrays.asList(order));
 
         for (OrderItem orderItem : orderItems) {
             productService.removeProductCacheByProdId(orderItem.getProdId());
